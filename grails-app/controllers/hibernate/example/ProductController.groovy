@@ -16,8 +16,8 @@ class ProductController extends RestfulController {
     }
 
     def search(String name, Integer max) { 
-        if (q) {
-            respond productService.findByNameLike("%${q}%".toString(), [max: Math.min( max ?: 10, 100)]) 
+        if (name) {
+            respond productService.findByNameLike("%${name}%".toString(), [max: Math.min( max ?: 10, 100)])
         } else {
             respond([]) 
         }
